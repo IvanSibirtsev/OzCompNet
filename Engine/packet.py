@@ -4,7 +4,8 @@ import struct
 class Packet:
     _EOL = b"EOL"
 
-    def __init__(self, id: int, seq_num: int, syn: bool, seq: bool, size: int, data: bytes):
+    def __init__(self, id: int, seq_num: int, syn: bool, seq: bool,
+                 size: int, data: bytes):
         self.id = id
         self.seq_num = seq_num
         self.syn = syn
@@ -51,4 +52,5 @@ class Packet:
         return Packet(id, 0, True, False, len(eol), eol)
 
     def to_str(self):
-        return f"id: {self.id}, seq num: {self.seq_num}, syn: {self.syn}, seq: {self.seq}, data: {self.data}"
+        return f"id: {self.id}, seq num: {self.seq_num}, syn: {self.syn}, " \
+               f"seq: {self.seq}, data: {self.data}"

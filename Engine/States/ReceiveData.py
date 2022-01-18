@@ -16,8 +16,11 @@ class ReceiveData(State):
         if self._id_d == packet.id:
             self._handle_packet_from_session(packet)
         if self._is_buffer_full():
-            requested_packet_number = self._count_of_received_packets % self._packets_in_section_count
+            requested_packet_number = self._get_packet_number()
             self._client.send_accept_packet(packet.id, requested_packet_number)
+
+    def _get_packet_number(self) -> int:
+        return self._count_of_received_packets % self._packets_in_section_count
 
     def _handle_packet_from_session(self, packet: Packet):
         if packet.is_end_of_data():

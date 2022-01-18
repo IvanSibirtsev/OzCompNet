@@ -21,7 +21,8 @@ class Switch:
                 id_s = conn.id
                 packet = pack("< B", id_s) + self.read(conn)
                 print(f"GET PACKET FROM {id_s} TO {id_d} PACKET: {packet}")
-                self._local_net_information.get_connection_by_id(id_d).write(packet)
+                self._local_net_information.get_connection_by_id(id_d)\
+                    .write(packet)
 
     def read(self, conn: Connection) -> bytes:
         seq_num = conn.read(1)

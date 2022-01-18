@@ -9,7 +9,8 @@ from Engine.config import Config
 
 
 class Client:
-    def __init__(self, id: int, flag: bool, connection: Connection, config: Config, id_d: int = -1):
+    def __init__(self, id: int, flag: bool, connection: Connection,
+                 config: Config, id_d: int = -1):
         self.config = config
         self._id = id
         self._flag = flag
