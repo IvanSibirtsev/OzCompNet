@@ -1,7 +1,7 @@
 from os import listdir
 
 from Engine.localNetInformation import LocalNetInformation
-from Engine.server import Connection, Server
+from Engine.switch import Connection, Switch
 
 HOME = "/home/iva/"
 
@@ -9,8 +9,8 @@ HOME = "/home/iva/"
 def main():
     ids = find_all_host_ids(HOME + "switch/")
     local_net_information = fill_local_net_information(ids)
-    server = Server(local_net_information)
-    server.run()
+    switch = Switch(local_net_information)
+    switch.run()
 
 
 def fill_local_net_information(ids: list[int]) -> LocalNetInformation:

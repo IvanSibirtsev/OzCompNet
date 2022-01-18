@@ -3,7 +3,7 @@ from Engine.localNetInformation import LocalNetInformation
 from struct import unpack, pack
 
 
-class Server:
+class Switch:
     def __init__(self, local_net_information: LocalNetInformation):
         self._local_net_information = local_net_information
 
